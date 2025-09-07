@@ -2,6 +2,20 @@
 
 @layer base {
   body {
-    font-family: "poppins", sans-serif;
-  }
+@apply font-poppins;
+}
+}
+
+@theme {
+    --color-primary-50:#EBF5FF ;
+    --color-primary-100:#E1EFFE;
+    --color-primary-200:#C3DDFD;
+    --color-primary-300:#A4CAFE;
+    --color-primary-500:#3F83F8;
+    --color-primary-600:#1C64F2;
+    --color-primary-700:#1A56DB;
+    --color-primary-800:#1E429F;
+    --color-primary-900:#233876;
+
+    --font-poppins: 'Poppins', sans-serif;
 }
