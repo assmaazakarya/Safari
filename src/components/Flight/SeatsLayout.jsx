@@ -51,10 +51,10 @@ function SeatsLayout() {
 
   return (
     <div className="p-2">
-      <div className="flex flex-col gap-6 ">
+      <div className="flex flex-col gap-10 md:gap-6 ">
         {SeatRow.map((row, rowIndex) => (
           <div key={rowIndex} className="flex justify-between">
-            <div className="flex gap-6 ">
+            <div className="flex gap-4 md:gap-6 ">
               {row.slice(0, 2).map((seat) => (
                 <Seat
                   key={seat.id}
@@ -63,7 +63,7 @@ function SeatsLayout() {
                 />
               ))}
             </div>
-            <div className="flex gap-6">
+            <div className="flex gap-4 md:gap-6 ">
               {row.slice(2).map((seat) => (
                 <Seat
                   key={seat.id}

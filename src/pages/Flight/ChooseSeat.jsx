@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import plane from "../../assets/images/plane_.png";
 import blue from "../../assets/icons/blue.png";
+import back from "../../assets/icons/back_black.png";
 import green from "../../assets/icons/green.png";
 import gray from "../../assets/icons/gray.png";
 import BackButton from "../../components/Global/BackButton";
 import SeatsLayout from "../../components/Flight/SeatsLayout";
+import { Link } from "react-router";
+import BackButtonMobile from "../../components/Global/BackButtonMobile";
 function ChooseSeat() {
+  const [SelectedSeat, setSelectedSeat] = useState(0);
 
   return (
     <div className="text-white [&_h1]:text-gray-900 [&_h2]:text-gray-500">
@@ -21,14 +25,19 @@ function ChooseSeat() {
             </div>
           </div>
           {/* second part */}
-          <div className="w-full  md:w-1/2 flex items-center justify-center  ">
-            <div className=" flex flex-col gap-2.5 justify-center  p-6 md:p-0 md:size-3/4">
-              <h1 className="text-xl font-medium  text-secondary-900 text-center mb-2 ">
-                Choose Seat
-              </h1>
+          <div className="w-full p-3 md:p-0  md:w-1/2 flex items-center justify-center  ">
+            <div className=" flex flex-col gap-2.5 justify-center  md:p-6 md:size-3/4">
+              {/* Mobile */}
+              <div className="flex items-center gap-[95px] md:hidden md:gap-0">
+                <BackButtonMobile />
+                <h1 className=" text-md md:text-xl font-poppins  text-secondary-900 text-center mb-2 ">
+                  ChooseSeat
+                </h1>
+              </div>
+
               <div className="flex flex-row justify-between gap-10">
                 <div className="flex items-center gap-2 ">
-                  <img className="size-4" src={blue} />
+                  <img className="size-4 font-poppins " src={blue} />
                   <h1>Avaliable</h1>
                 </div>
                 <div className="flex items-center gap-2 ">
@@ -60,9 +69,11 @@ function ChooseSeat() {
 
               {/* Button */}
               <div>
-                <button className=" flex py-2 px-4 text-white bg-[#1E429F]  w-full h-[56px] rounded-lg justify-center items-center font-semibold text-xl">
-                  Continue
-                </button>
+                <Link to={"/bardind"}>
+                  <button className=" flex py-2 px-4 text-white bg-[#1E429F] cursor-pointer w-full h-[56px] rounded-lg justify-center items-center font-semibold text-xl">
+                    Continue
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

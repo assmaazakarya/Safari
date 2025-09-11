@@ -8,6 +8,7 @@ import { Link, NavLink } from 'react-router'
 
 export default function Navbar() {
   return <div className="container mx-auto">
+    {/*!! edit margin */}
     <nav className='flex justify-between items-center m-5 rounded-lg px-4'>
      <Link to='/' className='hidden lg:block'>
         <img src={logo} alt="" />
@@ -46,6 +47,8 @@ export default function Navbar() {
             </li>
         </ul>
     </div>    
+
+    
     {/* Mobile Responsive*/}
     <div className='lg:hidden w-full space-y-5'>
      <div className='flex justify-between items-center '>
