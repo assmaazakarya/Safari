@@ -9,6 +9,7 @@ import trip3 from "../../assets/images/trip3.png";
 import trip4 from "../../assets/images/trip4.png";
 import trip5 from "../../assets/images/trip5.png";
 import { useNavigate } from "react-router";
+import BackButtonMobile from "../../components/Global/BackButtonMobile";
 
 export default function Compare() {
   const tripData = [
@@ -111,60 +112,73 @@ export default function Compare() {
   ];
 
   const [selectedPackage, setselectedPackage] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
-    <div className=" flex flex-col gap-8 justify-center p-4 md:p-0 lg:m-16 ">
-      <div className="flex gap-8">
-        <BackButton />
-        <div className="flex gap-1.5 border-1 ring-4 ring-gray-200 border-[#3F83F8] rounded-2xl shadow-[#3F52B433]  py-3.5 px-4 w-full">
-          <img src={searchicon} alt="" />
-          <input
-            className="border-[#3F83F8]  text-gray-500 w-full outline-none "
-            type="search"
-            placeholder="pari"
-          />
+    <div className="flex flex-col">
+      <div className="flex pl-2  md:hidden ">
+        <BackButtonMobile />
+      </div>
+      <div className=" flex flex-col gap-8 justify-center p-4 md:p-0 lg:m-16 ">
+        <div className="flex gap-8">
+          <div className="hidden md:block">
+            <BackButton />
+          </div>
+
+          <div className="flex gap-1.5 border-1 ring-4 ring-gray-200 border-[#3F83F8] rounded-2xl shadow-[#3F52B433]  py-3.5 px-4 w-full">
+            <img src={searchicon} alt="" />
+            <input
+              className="border-[#3F83F8]  text-gray-500 w-full outline-none "
+              type="search"
+              placeholder="pari"
+            />
+          </div>
         </div>
-      </div>
-      <div className="grid mx-auto max-w-6xl grid-cols-1 lg:grid-cols-2 gap-4 ">
-        {tripData.map((trip, index) => (
-          <TripCard
-            key={index}
-            title={trip.title}
-            time={trip.time}
-            description={trip.description}
-            image={trip.image}
-          />
-        ))}
-      </div>
+        <div className="grid mx-auto max-w-6xl grid-cols-1 lg:grid-cols-2 gap-4 ">
+          {tripData.map((trip, index) => (
+            <TripCard
+              key={index}
+              title={trip.title}
+              time={trip.time}
+              description={trip.description}
+              image={trip.image}
+            />
+          ))}
+        </div>
 
-      <div>
-        <h1 className=" font-medium">Compare</h1>
-      </div>
+        <div>
+          <h1 className=" font-medium">Compare</h1>
+        </div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
-        {packages.map((pkg) => (
-          <PackageCard
-            key={pkg.id}
-            title={pkg.title}
-            price={pkg.price}
-            highlights={pkg.highlights}
-            availability={pkg.availability}
-            guide={pkg.guide}
-            transportation={pkg.transportation}
-            isSelected= {selectedPackage===pkg.id}
-            onSelect={() => {
-              setselectedPackage(pkg.id);
-              // console.log(pkg.id);
+        <div className="grid lg:grid-cols-3 gap-6">
+          {packages.map((pkg) => (
+            <PackageCard
+              key={pkg.id}
+              title={pkg.title}
+              price={pkg.price}
+              highlights={pkg.highlights}
+              availability={pkg.availability}
+              guide={pkg.guide}
+              transportation={pkg.transportation}
+              isSelected={selectedPackage === pkg.id}
+              onSelect={() => {
+                setselectedPackage(pkg.id);
+                // console.log(pkg.id);
+              }}
+            />
+          ))}
+        </div>
 
-            }}
-          />
-        ))}
-      </div>
-
-      <div className=" flex justify-center ">
-        <button  disabled={selectedPackage === null} onClick={()=>navigate('/check')} className={`${selectedPackage?'bg-[#1E429F] cursor-pointer ' :'bg-[#6B7280]' }  w-[608px] py-2 px-4 rounded-lg font-semibold  text-white`}>
-          Check Out
-        </button>
+        <div className=" flex justify-center ">
+          <button
+            disabled={selectedPackage === null}
+            onClick={() => navigate("/check")}
+            className={`${
+              selectedPackage ? "bg-[#1E429F] cursor-pointer " : "bg-[#6B7280]"
+            }  w-[608px] py-2 px-4 rounded-lg font-semibold  text-white`}
+          >
+            Check Out
+          </button>
+        </div>
       </div>
     </div>
   );

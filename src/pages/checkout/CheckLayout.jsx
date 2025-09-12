@@ -52,8 +52,13 @@ function CheckLayout() {
               {/* div 1 */}
 
               <div className="flex flex-col gap-2 ">
-                <h1 className="font-poppins text-gray-700  text-lg md:font-medium">
-                  Add your payment method
+                <h1 className="hidden md:block font-poppins pl-3 pt-3 font-medium text-gray-700 md:p-0 text-[22px] md:text-lg md:font-medium">
+                  Add Your
+                 Payment Method
+                </h1>
+                <h1 className="block md:hidden font-poppins pl-3 pt-3 font-medium text-gray-700 md:p-0 text-[22px] md:text-lg md:font-medium">
+                  Add Your<br />
+                 Payment Method
                 </h1>
                 <img className=" md:hidden lg:hidden" src={CreditCard} alt="" />
                 <div className="flex gap-2 md:gap-8">
