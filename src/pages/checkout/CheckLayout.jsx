@@ -8,6 +8,9 @@ import CreditCard from "../../assets/images/Credit Card.png";
 import back from "../../assets/icons/back_black.png";
 import mastercard from "../../assets/images/mastercard.png";
 import BackButtonMobile from "../../components/Global/BackButtonMobile";
+import Form from "../../components/Checkout/Form";
+import PayPalForm from "../../components/Checkout/PayPalForm";
+import { useNavigate } from "react-router";
 
 function CheckLayout() {
   const methods = [
@@ -17,17 +20,17 @@ function CheckLayout() {
   ];
 
   const [SelectedMethod, setSelectedMethod] = useState(null);
-
+  const navigate = useNavigate();
   return (
     <>
-      <div className=" flex flex-col gap-2 p-3 ">
+      <div className=" flex flex-col overflow-x-hidden gap-2 p-3 ">
         {/* Mobile */}
-        <div className="flex gap-[95px] md:hidden md:gap-0">
-          <BackButtonMobile/>
-          <h1 className=" text-md md:text-xl font-poppins  text-secondary-900 text-center mb-2 ">
-            Payment Method
-          </h1>
-        </div>
+         <div className="flex  relative items-center  md:hidden ">
+                <BackButtonMobile />
+                <h1 className=" text-[18px] md:text-xl  absolute -translate-x-1/2 left-1/2 font-poppins font-medium  text-secondary-900  ">
+                  Payment Method
+                </h1>
+              </div>
 
         <div className="hidden md:block ml-[80px] mb-1 ">
           <BackButton />
@@ -40,8 +43,8 @@ function CheckLayout() {
             </div>
           </div>
           {/* second part */}
-          <div className=" md:p-0 md:w-1/2 ">
-            <div className="hidden md:w-full md:flex justify-center mb-4">
+          <div className=" w-full md:p-0 md:w-1/2 ">
+            <div className="hidden  md:w-full md:flex justify-center mb-4">
               <h1 className="text-lg text-gray-900">Payment Method</h1>
             </div>
 
@@ -52,7 +55,7 @@ function CheckLayout() {
                 <h1 className="font-poppins text-gray-700  text-lg md:font-medium">
                   Add your payment method
                 </h1>
-                <img className="md:hidden lg:hidden" src={CreditCard} alt="" />
+                <img className=" md:hidden lg:hidden" src={CreditCard} alt="" />
                 <div className="flex gap-2 md:gap-8">
                   {methods.map((method) => (
                     <button
@@ -74,105 +77,9 @@ function CheckLayout() {
 
               {/* div 2 */}
               {SelectedMethod === "visa" || SelectedMethod === "mastercard" ? (
-                <form className="flex flex-col p-5 gap-4 md:size-3/4">
-                  {/* Full Name */}
-                  <div className="flex flex-col gap-1  ">
-                    <label className="text-sm font-medium text-gray-700">
-                      Full Name
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        placeholder="kneeDue@untitledui.com"
-                        className="w-full pl-10 pr-4 py-2.5 border-2 border-[#D0D5DD] rounded-md text-sm text-gray-700 placeholder-gray-400"
-                      />
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></span>
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex flex-col gap-1">
-                    <label className="text-sm font-medium text-gray-700">
-                      Your Email
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="email"
-                        placeholder="kneeDue@untitledui.com"
-                        className="w-full pl-10 pr-4 py-2.5 border-2 border-[#D0D5DD] rounded-md text-sm text-gray-700 placeholder-gray-400"
-                      />
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></span>
-                    </div>
-                  </div>
-
-                  {/* Date + CVV */}
-                  <div className="flex gap-4">
-                    {/* Valid Date */}
-                    <div className="flex flex-col gap-1 w-full">
-                      <label className="text-sm font-medium text-gray-700">
-                        Valid Date
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="12-6-2024"
-                        className="w-full px-4 py-2.5 border-2 border-[#D0D5DD] rounded-md text-sm text-gray-700 placeholder-gray-400"
-                      />
-                    </div>
-
-                    {/* CVV */}
-                    <div className="flex flex-col gap-1 w-full">
-                      <label className="text-sm font-medium text-gray-700">
-                        CVV
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="522"
-                        className="w-full px-4 py-2.5 border-2 border-[#D0D5DD] rounded-md text-sm text-gray-700 placeholder-gray-400"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Button */}
-                  <button className="bg-primary-800 px-4 py-2 rounded-2xl text-amber-50 w-full  cursor-pointer">
-                    Confirm Booking
-                  </button>
-                </form>
+                <Form/>
               ) : SelectedMethod === "paypal" ? (
-                <form className="flex flex-col p-5 w-full gap-4 md:size-3/4">
-                  {/* Full Name */}
-                  <div className="flex flex-col gap-1  ">
-                    <label className="text-sm font-medium text-gray-700">
-                      Full Name
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        placeholder="kneeDue@untitledui.com"
-                        className="w-full pl-10 pr-4 py-2.5 border-2 border-[#D0D5DD] rounded-md text-sm text-gray-700 placeholder-gray-400"
-                      />
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></span>
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex flex-col gap-1">
-                    <label className="text-sm font-medium text-gray-700">
-                      Your Email
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="email"
-                        placeholder="kneeDue@untitledui.com"
-                        className="w-full pl-10 pr-4 py-2.5 border-2 border-[#D0D5DD] rounded-md text-sm text-gray-700 placeholder-gray-400"
-                      />
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></span>
-                    </div>
-                  </div>
-                  {/* Button */}
-                  <button className="bg-primary-800 px-4 py-2 rounded-2xl text-amber-50 w-full  cursor-pointer">
-                    Confirm Booking
-                  </button>
-                </form>
+                <PayPalForm/>
               ) : (
                 <div className="flex flex-col gap-4 pt-24 md:pt-72 p-5 w-full md:w-3/4">
                   <div className="flex flex-row items-center gap-2 justify-center">
@@ -181,7 +88,10 @@ function CheckLayout() {
                     </h1>
                     <img className="size-5" src={addcard} alt="Add" />
                   </div>
-                  <button className="bg-primary-800 px-4 py-2 rounded-2xl text-white w-full cursor-pointer">
+                  <button
+                    onClick={() => navigate("/done")}
+                    className="bg-primary-800 px-4 py-2 rounded-2xl text-white w-full cursor-pointer"
+                  >
                     Continue
                   </button>
                 </div>

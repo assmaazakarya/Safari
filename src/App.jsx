@@ -10,6 +10,7 @@ import ChooseSeat from "./pages/Flight/ChooseSeat.jsx";
 import TicketsPage from "./pages/Flight/TicketsPage.jsx";
 import BardindPass from "./pages/Flight/BardindPass.jsx";
 import CheckLayout from "./pages/checkout/CheckLayout.jsx";
+import PaymentDone from "./pages/checkout/PaymentDone.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -56,7 +57,10 @@ function App() {
         {
           path: "check",
           element: <CheckLayout />,
-        },
+        },{
+          path:'done',
+          element:<PaymentDone/>
+        }
       ],
     },
   ]);

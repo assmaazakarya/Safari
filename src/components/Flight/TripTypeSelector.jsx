@@ -31,14 +31,14 @@ function TripTypeSelector({ selectedTrip, onTripChange }) {
           <div
             key={index}
             onClick={() => onTripChange(trip.value)}
-            className={`flex items-center md:font-medium gap-1 md:gap-2 p-2  md:py-4 md:px-6 cursor-pointer ${
+            className={`flex items-center md:font-medium gap-2 md:gap-2 p-3  md:py-4 md:px-6 cursor-pointer ${
               isSelected
                 ? "bg-[#EBF5FF] text-[#1A56DB]"
                 : "bg-gray-100 text-gray-600"
             } rounded-[254px]`}
           >
             <img className="size-3.5 md:size-4.5" src={trip.icon} alt={trip.name} />
-            <span>{trip.name}</span>
+            <h1 className="text-sm md:text-md" >{trip.name}</h1>
           </div>
         );
       })}

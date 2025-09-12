@@ -13,7 +13,7 @@ function ChooseSeat() {
 
   return (
     <div className="text-white [&_h1]:text-gray-900 [&_h2]:text-gray-500">
-      <div className="md:p-3 ">
+      <div className="md:p-3 overflow-x-hidden ">
         <div className="flex">
           {/* first part */}
           <div className=" w-1/2  hidden md:block ">
@@ -26,27 +26,30 @@ function ChooseSeat() {
           </div>
           {/* second part */}
           <div className="w-full p-3 md:p-0  md:w-1/2 flex items-center justify-center  ">
-            <div className=" flex flex-col gap-2.5 justify-center  md:p-6 md:size-3/4">
+            <div className=" flex flex-col gap-6 md:gap-2.5 justify-center size-full  md:p-6 md:size-3/4">
               {/* Mobile */}
-              <div className="flex items-center gap-[95px] md:hidden md:gap-0">
+              <div className="flex  relative items-center  md:hidden md:gap-0">
                 <BackButtonMobile />
-                <h1 className=" text-md md:text-xl font-poppins  text-secondary-900 text-center mb-2 ">
-                  ChooseSeat
+                <h1 className=" text-[18px] md:text-xl  absolute -translate-x-1/2 left-1/2 font-poppins font-medium  text-secondary-900  ">
+                  Choose Seats
                 </h1>
               </div>
+              <h1 className="hidden md:block text-md md:text-[18px] font-medium font-poppins  text-gray-900 text-center mb-2 ">
+                Choose Seats
+              </h1>
 
-              <div className="flex flex-row justify-between gap-10">
-                <div className="flex items-center gap-2 ">
-                  <img className="size-4 font-poppins " src={blue} />
-                  <h1>Avaliable</h1>
+              <div className="flex flex-row justify-center gap-6 md:gap-10 ">
+                <div className="flex items-center gap-2   ">
+                  <img className="size-3 md:size-4 " src={blue} />
+                  <h1 className="font-poppins" >Avaliable</h1>
                 </div>
                 <div className="flex items-center gap-2 ">
-                  <img className="size-4" src={green} />
-                  <h1>Selected</h1>
+                  <img className="size-3 md:size-4" src={green} />
+                  <h1 className="font-poppins">Selected</h1>
                 </div>
                 <div className="flex items-center gap-2 ">
-                  <img className="size-4" src={gray} />
-                  <h1>Un avaliable</h1>
+                  <img className="size-3 md:size-4" src={gray} />
+                  <h1 className="font-poppins">Un avaliable</h1>
                 </div>
               </div>
               {/* Seats Section */}

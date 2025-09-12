@@ -3,10 +3,11 @@ import SideImage from "../../components/Global/SideImage";
 import plane from "../../assets/images/plane_.png";
 import back from "../../assets/icons/back_white.png";
 import planemobile from "../../assets/images/planemobile.jpg";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import TripTypeSelector from "../../components/Flight/TripTypeSelector";
 function SearchPage() {
   const [selectedTrip, setselectedTrip] = useState("round trip");
+  const nav = useNavigate()
   function handleSelectedTrip(trip) {
     setselectedTrip(trip);
   }
@@ -24,10 +25,11 @@ function SearchPage() {
           <div className=" relative w-full  md:hidden">
             <img className="object-cover static " src={planemobile} alt="" />
             <div className=" flex items-center gap-[80px] absolute top-5 left-4" >
-              <img
+              <button onClick={()=>nav(-1)} > <img
                 src={back}
                 className="size-6 md:hidden cursor-pointer "
-              />
+              /></button>
+             
               <h1 className=" text-white text-lg ">
                 Book Your Flight
               </h1>
